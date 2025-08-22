@@ -1,0 +1,9 @@
+# dirs
+build/
+install/
+.cache/
+.idea/
+output/
+*.pyc
+*.log
+log/

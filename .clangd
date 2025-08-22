@@ -1,0 +1,7 @@
+InlayHints:
+  # A boolean that enables/disables the inlay-hints feature for all kinds, when disabled, configuration for specific kinds are ignored.
+  Enabled: No
+  # A boolean that enables/disables inlay-hints for parameter names in function calls.
+  ParameterNames: Yes
+  # A boolean that enables/disables inlay-hints for deduced types.
+  DeducedTypes: Yes

@@ -1,0 +1,106 @@
+---
+Checks: '*,
+        -abseil-*,
+        -altera-*,
+        -fuchsia-*,
+        -google-*,
+        -llvm*,
+        -zircon-*,
+        -modernize-use-trailing-return-type,
+        -modernize-avoid-bind
+        -modernize-deprecated-headers
+        -modernize-loop-convert
+        -modernize-make-shared
+        -modernize-make-unique
+        -modernize-pass-by-value
+        -modernize-raw-string-literal
+        -modernize-redundant-void-arg
+        -modernize-replace-auto-ptr
+        -modernize-shrink-to-fit
+        -modernize-use-auto
+        -modernize-use-bool-literals
+        -modernize-use-default
+        -modernize-use-emplace
+        -modernize-use-nullptr
+        -modernize-use-override
+        -modernize-use-using
+        -readability-else-after-return,
+        -readability-static-accessed-through-instance,
+        -readability-avoid-const-params-in-decls,
+        -cppcoreguidelines-non-private-member-variables-in-classes
+        '
+WarningsAsErrors: true
+HeaderFilterRegex: ''
+AnalyzeTemporaryDtors: false
+FormatStyle: 'file'
+# https://clang.llvm.org/extra/clang-tidy/checks/readability/identifier-naming.html
+CheckOptions:
+  - key:      llvm-namespace-comment.ShortNamespaceLines
+    value:    '10'
+  - key:      llvm-namespace-comment.SpacesBeforeComments
+    value:    '2'
+  - key:      readability-braces-around-statements.ShortStatementLines
+    value:    '2'
+  - key:      readability-function-cognitive-complexity.Threshold
+    value:    '500'
+  # type names
+  - key:      readability-identifier-naming.ClassCase
+    value:    CamelCase
+  - key:      readability-identifier-naming.StructCase
+    value:    CamelCase
+  - key:      readability-identifier-naming.EnumCase
+    value:    CamelCase
+  - key:      readability-identifier-naming.UnionCase
+    value:    CamelCase
+  # method names
+  - key:      readability-identifier-naming.MethodCase
+    value:    camelBack
+  - key:      readability-identifier-naming.ClassMethodCase
+    value:    camelBack
+  - key:      readability-identifier-naming.PrivateMethodCase
+    value:    camelBack
+  - key:      readability-identifier-naming.ProtectedMethodCase
+    value:    camelBack
+  - key:      readability-identifier-naming.PublicMethodCase
+    value:    camelBack
+  # variable names
+  - key:      readability-identifier-naming.MemberCase
+    value:    lower_case
+  - key:      readability-identifier-naming.VariableCase
+    value:    lower_case
+  - key:      readability-identifier-naming.ClassMemberCase
+    value:    lower_case
+  - key:      readability-identifier-naming.PrivateMemberCase
+    value:    lower_case
+  - key:      readability-identifier-naming.ProtectedMemberCase
+    value:    lower_case
+  - key:      readability-identifier-naming.PublicMemberCase
+    value:    lower_case
+  - key:      readability-identifier-naming.ClassMemberPrefix
+    value:    '_'
+  - key:      readability-identifier-naming.PrivateMemberPrefix
+    value:    '_'
+  - key:      readability-identifier-naming.ProtectedMemberPrefix
+    value:    '_'
+  # const and static
+  - key:      readability-identifier-naming.EnumConstantCase
+    value:    UPPER_CASE
+  - key:      readability-identifier-naming.StaticConstantCase
+    value:    UPPER_CASE
+  - key:      readability-identifier-naming.ConstexprVariableCase
+    value:    UPPER_CASE
+  - key:      readability-identifier-naming.StaticConstantPrefix
+    value:    's_'
+  - key:      readability-identifier-naming.ClassConstantCase
+    value:    UPPER_CASE
+  # static variables
+  - key:      readability-identifier-naming.StaticVariableCase
+    value:    lower_case
+  - key:      readability-identifier-naming.StaticVariablePrefix
+    value:    's_'
+  # global variables
+  - key:      readability-identifier-naming.GlobalConstantCase
+    value:    UPPER_CASE
+  - key:      readability-identifier-naming.GlobalVariablePrefix
+    value:    'g_'
+...

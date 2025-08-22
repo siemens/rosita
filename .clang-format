@@ -1,0 +1,122 @@
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+Language: Cpp
+AccessModifierOffset: -4 # extra indent or outdent of access modifiers, e.g. public:
+AlignAfterOpenBracket: Align # horizontally aligns arguments after an open bracket
+AlignArrayOfStructures: Right # initialization for an array of structs aligns the fields into columns
+AlignConsecutiveMacros: true # style of aligning consecutive assignments
+  #Enabled: true
+  #AcrossEmptyLines: false
+  #AcrossComments: false
+# options for aligning backslashes in escaped newlines
+AlignOperands: true # horizontally align operands of binary and ternary expressions
+AlignTrailingComments: true # aligns trailing comments
+AllowAllArgumentsOnNextLine: false # to allow putting all arguments onto the next line
+AllowAllParametersOfDeclarationOnNextLine: false # allow putting all parameters of a function declaration onto the next line
+AllowShortBlocksOnASingleLine: Always # dependent on the value, while (true) { continue; } can be put on a single line
+AllowShortCaseLabelsOnASingleLine: false # short case labels will be contracted to a single line
+AllowShortEnumsOnASingleLine : false # allow short enums on a single line
+AllowShortFunctionsOnASingleLine: Empty # dependent on the value, int f() { return 0; } can be put on a single line
+AllowShortIfStatementsOnASingleLine: Never # dependent on the value, if (a) return; can be put on a single line
+AllowShortLambdasOnASingleLine : Empty # dependent on the value, auto lambda []() { return 0; } can be put on a single line
+AllowShortLoopsOnASingleLine: false # while (true) continue; can be put on a single line
+AlwaysBreakAfterReturnType: None # function declaration return type breaking style to use
+AlwaysBreakBeforeMultilineStrings: false # always break before multiline string literals
+AlwaysBreakTemplateDeclarations: Yes # template declaration breaking style to use
+BinPackArguments: false # function call’s arguments will either be all on the same line or will have one line each
+BinPackParameters: false # function declaration’s or function definition’s parameters will either all be on the same line or will have one line each
+#BitFieldColonSpacing: Both # BitFieldColonSpacingStyle to use for bitfields
+BraceWrapping: # Control of individual brace wrapping cases
+  AfterCaseLabel: true
+  AfterClass: true
+  AfterControlStatement: Always
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: false
+  AfterObjCDeclaration: true
+  AfterStruct: true
+  AfterUnion: true
+  AfterExternBlock: true
+  BeforeCatch: true
+  BeforeElse: true
+  BeforeLambdaBody: true
+  BeforeWhile: true
+  IndentBraces: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: true
+BreakBeforeBinaryOperators: NonAssignment # way to wrap binary operators
+BreakBeforeBraces: Custom # brace breaking style to use -> Custom: use BraceWrapping ...
+BreakBeforeTernaryOperators: true # ternary operators will be placed after line breaks
+BreakConstructorInitializers: AfterColon # break constructor initializers style to use
+BreakInheritanceList: AfterColon # inheritance list style to use
+BreakStringLiterals: true # allow breaking string literals when formatting
+ColumnLimit: 140 # maximal column limit
+CommentPragmas: '^ IWYU pragma:' # regular expression that describes comments with special meaning, which should not be split into lines or otherwise changed
+CompactNamespaces: false # consecutive namespace declarations will be on the same line
+ConstructorInitializerIndentWidth: 4 # number of characters to use for indentation of constructor initializer lists as well as inheritance lists
+ContinuationIndentWidth: 4 # indent width for line continuation
+Cpp11BracedListStyle: false # format braced lists as best suited for C++11 braced lists
+DerivePointerAlignment: false #  analyze the formatted file for the most common alignment of & and *
+DisableFormat: false # disables formatting completely
+EmptyLineAfterAccessModifier: Never # defines when to put an empty line after access modifiers
+EmptyLineBeforeAccessModifier: Always # defines in which cases to put empty line before access modifiers
+ExperimentalAutoDetectBinPacking: true # clang-format detects whether function calls and definitions are formatted with one parameter per line
+FixNamespaceComments: true # clang-format adds missing namespace end comments for short namespaces and fixes invalid existing ones. Short ones are controlled by “ShortNamespaceLines”
+ForEachMacros: # vector of macros that should be interpreted as foreach loops instead of as function calls
+- foreach
+- Q_FOREACH
+- BOOST_FOREACH
+IncludeBlocks: Regroup # multiple #include blocks can be sorted as one and divided based on category
+IncludeCategories: # regular expressions denoting the different #include categories used for ordering #includes
+- Priority: 2
+  Regex: ^"(llvm|llvm-c|clang|clang-c)/
+- Priority: 3
+  Regex: ^(<|"(gtest|gmock|isl|json)/)
+- Priority: 1
+  Regex: .*
+IncludeIsMainRegex: (Test)?$ # specify a regular expression of suffixes that are allowed in the file-to-main-include mapping
+IndentCaseBlocks: true # indent case label blocks one level from the case label
+IndentCaseLabels: false # indent case labels one level from the switch statement
+#IndentExternBlock: AfterExternBlock # indentExternBlockStyle is the type of indenting of extern blocks
+IndentPPDirectives: AfterHash # preprocessor directive indenting style to use
+IndentWidth: 4 # number of columns to use for indentation
+IndentWrappedFunctionNames: true # indent if a function definition or declaration is wrapped after the type
+KeepEmptyLinesAtTheStartOfBlocks: false # empty line at the start of blocks is kept
+LambdaBodyIndentation: Signature # indentation style of lambda bodies
+MacroBlockBegin: '' # regular expression matching macros that start a block
+MacroBlockEnd: '' # regular expression matching macros that end a block
+MaxEmptyLinesToKeep: 2 # maximum number of consecutive empty lines to keep
+NamespaceIndentation: None # indentation used for namespaces
+PackConstructorInitializers: Never # pack constructor initializers style to use
+PointerAlignment: Middle # pointer and reference alignment style
+#QualifierAlignment: Leave # different ways to arrange specifiers and qualifiers (e.g. const/volatile)
+#QualifierOrder: ['inline', 'type', 'static', 'const', 'volatile']
+#ReferenceAlignment: Middle # reference alignment style (overrides PointerAlignment for references)
+ReflowComments: true # clang-format will attempt to re-flow comments
+#SeparateDefinitionBlocks: Always # specifies the use of empty lines to separate definition blocks, including classes, structs, enums, and functions
+#SortIncludes: CaseSensitive # controls if and how clang-format will sort #includes
+SortUsingDeclarations: false # clang-format will sort using declaration
+SpaceAfterCStyleCast: false # a space is inserted after C style casts
+SpaceAfterLogicalNot: false # a space is inserted after the logical not operator (!)
+SpaceAfterTemplateKeyword: false # a space will be inserted after the ‘template’ keyword
+#SpaceAroundPointerQualifiers: Both # defines in which cases to put a space before or after pointer qualifier
+SpaceBeforeAssignmentOperators: true # spaces will be removed before assignment operators
+#SpaceBeforeCaseColon: false # spaces will be removed before case colon
+SpaceBeforeCpp11BracedList: false # a space will be inserted before a C++11 braced list used to initialize an object (after the preceding identifier or type)
+SpaceBeforeCtorInitializerColon: true # spaces will be removed before constructor initializer colon
+SpaceBeforeInheritanceColon: true # spaces will be removed before inheritance colon
+SpaceBeforeParens: ControlStatements # defines in which cases to put a space before opening parentheses
+SpaceBeforeRangeBasedForLoopColon: true # spaces will be removed before range-based for loop colon
+SpaceBeforeSquareBrackets: false # spaces will be before [. Lambdas will not be affected. Only the first [ will get a space added
+SpaceInEmptyBlock: false # spaces will be inserted into {}
+SpaceInEmptyParentheses: false # spaces may be inserted into ()
+SpacesBeforeTrailingComments: 1 # number of spaces before trailing line comments (// - comments)
+#SpacesInAngles: Never # SpacesInAnglesStyle to use for template argument lists
+SpacesInCStyleCastParentheses: false # spaces may be inserted into C style casts
+SpacesInConditionalStatement: false # spaces will be inserted around if/for/switch/while conditions
+SpacesInContainerLiterals: true # spaces are inserted inside container literals (e.g. ObjC and Javascript array and dict literals)
+SpacesInParentheses: false # spaces will be inserted after ( and before )
+SpacesInSquareBrackets: false # spaces will be inserted after [ and before ]. Lambdas without arguments or unspecified size array declarations will not be affected
+Standard: c++17 # parse and format C++ constructs compatible with this standard
+TabWidth: 4 # number of columns used for tab stops
+UseTab: Never # way to use tab characters in the resulting file

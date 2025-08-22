@@ -1,0 +1,32 @@
+name: CI/CD Pipeline
+
+on: 
+    push:
+        branches:
+            - main      # Trigger on pushes on the main branch
+        tags:
+            - 'v*.*.*'  # Trigger on version tags (e.g., v1.0.0)
+    pull_request:
+        branches:
+            - main      # Trigger on pull requests to the main branch
+
+jobs:
+  generate-changelog:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Generate Changelog
+        uses: mikepenz/release-changelog-builder-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit and Push Changelog
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add CHANGELOG.md
+          git commit -m "docs: update changelog" || exit 0
+          git push

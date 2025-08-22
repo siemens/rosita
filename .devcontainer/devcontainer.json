@@ -1,0 +1,55 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+	"dockerFile": "Dockerfile",
+	"build": {
+		"args": {
+			"WORKSPACE": "${containerWorkspaceFolder}"
+		}
+	},
+	"remoteUser": "ros",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/home/ros/ros2_ws,type=bind",
+	"workspaceFolder": "/home/ros/ros2_ws", // container workspace folder to load at startup
+	"runArgs": [
+		"--name=vscode_${localEnv:USER}_asyncapi_devcontainer", // name the development docker container
+		"--network=host", // use network from host
+		"--ipc=host", // use host shared memory area (useful for FastDDS)
+		"--privileged", // give extended privileges to the container
+		"--cap-add=SYS_PTRACE", // for ptrace-based debuggers like C++, Go, and Rust
+		"--security-opt=seccomp:unconfined", // turn off seccomp confinement for the container
+		"--security-opt=apparmor:unconfined", // turn off apparmor profile to be applied to the container
+		"--volume=/tmp/.X11-unix:/tmp/.X11-unix", // enable GUI programs to appear on host display
+	],
+	"containerEnv": {
+		"DISPLAY": "${localEnv:DISPLAY}",
+		"ROS_LOCALHOST_ONLY": "0",
+		"ROS_DOMAIN_ID": "0",
+		"RMW_IMPLEMENTATION": "rmw_cyclonedds_cpp"
+	},
+	// Set *default* container specific settings.json values on container create.
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+						"path": "bash"
+					}
+				},
+				"terminal.integrated.defaultProfile.linux": "bash"
+			},
+			"extensions": [
+				"ms-azuretools.vscode-docker",
+				"llvm-vs-code-extensions.vscode-clangd",
+				"ms-python.python",
+				"ms-vscode.cmake-tools",
+				"ms-iot.vscode-ros",
+				"redhat.vscode-yaml",
+				"mhutchie.git-graph",
+				"jebbs.plantuml",
+				"cschlosser.doxdocgen",
+				"matepek.vscode-catch2-test-adapter",
+				"samuelcolvin.jinjahtml",
+				"asyncapi.asyncapi-preview"
+			]
+		}
+	}
+}
