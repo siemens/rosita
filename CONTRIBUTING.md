@@ -1,6 +1,6 @@
-# Contributing to AsyncAPI ROS 2 Specification Generator
+# Contributing to ROSITA - the AsyncAPI ROS 2 Specification Generator
 
-Thank you for considering contributing to the AsyncAPI ROS 2 Specification Generator project! This document outlines the process for contributing to the project and provides guidelines to help you get started.
+Thank you for considering contributing to the ROSITA project! This document outlines the process for contributing to the project and provides guidelines to help you get started.
 
 ## Code of Conduct
 
@@ -10,8 +10,7 @@ By participating in this project, you agree to abide by the Siemens Code of Cond
 
 ### Setting up your development environment
 
-1. Fork the repository on [http://github.com/siemens](https://github.com/siemens/rosita)
-    > **⚠️ WARNING: The repository URL in this document needs to be updated with the correct link once available in GithHub.**
+1. Fork the repository on [https://github.com/siemens/rosita](https://github.com/siemens/rosita)
 2. Clone your fork locally
 3. Set up the development environment according to the instructions in the README.md
 
@@ -89,4 +88,4 @@ If you have questions or need further guidance, please contact the project maint
 - Amparo Sancho Arellano <amparo.sancho-arellano@siemens.com>
 - Florian Gramss <florian.gramss@siemens.com>
 
-Thank you for contributing to Introspection for AsyncAPI!
+Thank you for contributing to ROSITA!
